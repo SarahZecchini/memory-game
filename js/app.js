@@ -23,7 +23,7 @@ let matchedCard = document.getElementsByClassName("match");
  let closeicon = document.querySelector(".close");
 
  // declare modal
- let modal = document.getElementById("popup1")
+ let modal = document.getElementById("modalStart")
 
  // array for opened cards
 var openedCards = [];
