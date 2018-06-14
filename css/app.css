@@ -17,8 +17,9 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
+    background: #50335f;
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
 }
 
 .container {
@@ -29,8 +30,18 @@ body {
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-family: 'Poiret One', cursive;
+    font-size: 60px;
+    font-weight: 600;
+    color: #fff;
+}
+
+hr {
+    width: 100%;
+}
+
+footer {
+    font-size: 15px;
 }
 
 
@@ -42,21 +53,20 @@ h1 {
  .deck {
      width: 660px;
      min-height: 680px;
-     background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+     background: #fff;
      padding: 32px;
      border-radius: 10px;
-     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
      display: flex;
      flex-wrap: wrap;
      justify-content: space-between;
      align-items: center;
-     margin: 0 0 3em;
+     margin: 0 0 20px;
  }
 
  .deck .card {
      height: 125px;
      width: 125px;
-     background: #2e3d49;
+     background: #999;
      font-size: 0;
      color: #ffffff;
      border-radius: 8px;
@@ -64,12 +74,11 @@ h1 {
      display: flex;
      justify-content: center;
      align-items: center;
-     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
  }
 
  .deck .card.open {
      transform: rotateY(0);
-     background: #02b3e4;
+     background: #50335f;
      cursor: default;
 	 animation-name: select;
 	 animation-duration: .6s;
@@ -81,7 +90,7 @@ h1 {
 
  .deck .card.match {
      cursor: default;
-     background: #02ccba;
+     background: #FFD700;
      font-size: 33px;
 	 animation-name: match;
 	 animation-duration: .6s ;
@@ -107,6 +116,7 @@ h1 {
  .score-panel {
      text-align: left;
      margin-bottom: 10px;
+     font-size: 15px;
  }
 
  .score-panel .stars {
@@ -166,13 +176,14 @@ h1 {
 	width: 85%;
 	position: relative;
 	transition: all 5s ease-in-out;
-	font-family: 'Gloria Hallelujah', cursive;
+	font-family: 'Raleway', sans-serif;
 }
 
 .modal h2 {
 	margin-top: 0;
-	color: #333;
-	font-family: Tahoma, Arial, sans-serif;
+	color: #50335f;
+	font-family: 'Poiret One', cursive;
+    text-align: center;
 }
 
 .modal .close {
@@ -187,7 +198,7 @@ h1 {
 }
 
 .modal .close:hover {
-	color: #E5F720;
+	color: #FFD700;
 }
 
 .modal .congrats,
@@ -195,6 +206,7 @@ h1 {
 	max-height: 30%;
 	overflow: auto;
 	text-align: center;
+    color: #50335f;
 }
 
 .show {
@@ -207,14 +219,14 @@ h1 {
 }
 
 #play-again {
-	background-color: #141214;
+	background-color: #50335f;
 	padding: 0.7rem 1rem;
-	font-size: 1.1rem;
+	font-size: 30px;
 	display: block;
 	margin: 0 auto;
 	width: 50%;
-	font-family: 'Gloria Hallelujah', cursive;
-	color: #ffffff;
+	font-family: 'Poiret One', cursive;
+	color: #fff;
 	border-radius: 5px;
 }
 
@@ -324,7 +336,7 @@ h1 {
 		width: 125px;
 	}
 
-	.popup {
+	.modal {
 		width: 60%;
 	}
 }

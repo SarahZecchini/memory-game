@@ -1,37 +1,37 @@
-// cards array holds all cards
+// Declare Globally
+
+// Array to Hold Cards
 let card = document.getElementsByClassName("card");
 let cards = [...card]
-console.log(cards);
+console.log(cards); //should detail 16 within array - confirmed
 
-// deck of all cards in game
+// Create Deck to Hold All Cards
 const deck = document.getElementById("card-deck");
 
-// declaring move variable
+// Push Open Cards Here
+var openedCards = [];
+
+// Is it a Match???
+let matchedCard = document.getElementsByClassName("match");
+
+// Create move counters
 let moves = 0;
 let counter = document.querySelector(".moves");
 
-// declare variables for star icons
+// Create stars
 const stars = document.querySelectorAll(".fa-star");
 
-// declaring variable of matchedCards
-let matchedCard = document.getElementsByClassName("match");
-
- // stars list
+// List stars
  let starsList = document.querySelectorAll(".stars li");
 
- // close icon in modal
- let closeicon = document.querySelector(".close");
-
- // declare modal
+ // Launch modal - Congrats window!
  let modal = document.getElementById("modalStart")
 
- // array for opened cards
-var openedCards = [];
+ // Close modal
+ let closeicon = document.querySelector(".close");
 
 
-// @description shuffles cards
-// @param {array}
-// @returns shuffledarray
+// Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -47,15 +47,15 @@ function shuffle(array) {
 };
 
 
-// @description shuffles cards when page is refreshed / loads
+// On page load, shuffle cards
 document.body.onload = startGame();
 
 
-// @description function to start a new play
+// Function to initiate game
 function startGame(){
-    // shuffle deck
+    // Call shuffle function
     cards = shuffle(cards);
-    // remove all exisiting classes from each card
+    // Reset classes
     for (var i = 0; i < cards.length; i++){
         deck.innerHTML = "";
         [].forEach.call(cards, function(item) {
@@ -63,15 +63,15 @@ function startGame(){
         });
         cards[i].classList.remove("show", "open", "match", "disabled");
     }
-    // reset moves
+    // Reset moves
     moves = 0;
     counter.innerHTML = moves;
-    // reset rating
+    // Reset rating
     for (var i= 0; i < stars.length; i++){
         stars[i].style.color = "#FFD700";
         stars[i].style.visibility = "visible";
     }
-    //reset timer
+    //Reset timer
     second = 0;
     minute = 0;
     hour = 0;
@@ -81,7 +81,7 @@ function startGame(){
 }
 
 
-// @description toggles open and show class to display cards
+// Toggle classes to flip cards
 var displayCard = function (){
     this.classList.toggle("open");
     this.classList.toggle("show");
@@ -89,10 +89,11 @@ var displayCard = function (){
 };
 
 
-// @description add opened cards to OpenedCards list and check if cards are match or not
+// Push opened cards to array
 function cardOpen() {
     openedCards.push(this);
     var len = openedCards.length;
+    // Compare to determine match
     if(len === 2){
         moveCounter();
         if(openedCards[0].type === openedCards[1].type){
@@ -104,7 +105,7 @@ function cardOpen() {
 };
 
 
-// @description when cards match
+// Do they match?
 function matched(){
     openedCards[0].classList.add("match", "disabled");
     openedCards[1].classList.add("match", "disabled");
@@ -114,7 +115,7 @@ function matched(){
 }
 
 
-// description when cards don't match
+// They don't?
 function unmatched(){
     openedCards[0].classList.add("unmatched");
     openedCards[1].classList.add("unmatched");
@@ -128,7 +129,7 @@ function unmatched(){
 }
 
 
-// @description disable cards temporarily
+// Temp disable cards
 function disable(){
     Array.prototype.filter.call(cards, function(card){
         card.classList.add('disabled');
@@ -136,7 +137,7 @@ function disable(){
 }
 
 
-// @description enable cards and disable matched cards
+// Enable matches
 function enable(){
     Array.prototype.filter.call(cards, function(card){
         card.classList.remove('disabled');
@@ -147,26 +148,26 @@ function enable(){
 }
 
 
-// @description count player's moves
+// Count and time players moves
 function moveCounter(){
     moves++;
     counter.innerHTML = moves;
-    //start timer on first click
+    // Start timer, on first click
     if(moves == 1){
         second = 0;
         minute = 0;
         hour = 0;
         startTimer();
     }
-    // setting rates based on moves
-    if (moves > 8 && moves < 12){
+    // Stars given based on number of moves
+    if (moves > 10 && moves < 14){
         for( i= 0; i < 3; i++){
             if(i > 1){
                 stars[i].style.visibility = "collapse";
             }
         }
     }
-    else if (moves > 13){
+    else if (moves > 15){
         for( i= 0; i < 3; i++){
             if(i > 0){
                 stars[i].style.visibility = "collapse";
@@ -176,7 +177,7 @@ function moveCounter(){
 }
 
 
-// @description game timer
+// Timer function
 var second = 0, minute = 0; hour = 0;
 var timer = document.querySelector(".timer");
 var interval;
@@ -196,30 +197,30 @@ function startTimer(){
 }
 
 
-// @description congratulations when all cards match, show modal and moves, time and rating
+// Congratulations Function!
 function congratulations(){
     if (matchedCard.length == 16){
         clearInterval(interval);
         finalTime = timer.innerHTML;
 
-        // show congratulations modal
+        // Show Modal on 16 matched cards
         modal.classList.add("show");
 
-        // declare star rating variable
+        // Star rating
         var starRating = document.querySelector(".stars").innerHTML;
 
-        //showing move, rating, time on modal
+        // Show move conter, star rating, final time
         document.getElementById("finalMove").innerHTML = moves;
         document.getElementById("starRating").innerHTML = starRating;
         document.getElementById("totalTime").innerHTML = finalTime;
 
-        //closeicon on modal
+        // Close modal
         closeModal();
     };
 }
 
 
-// @description close icon on modal
+// Close modal
 function closeModal(){
     closeicon.addEventListener("click", function(e){
         modal.classList.remove("show");
@@ -228,7 +229,7 @@ function closeModal(){
 }
 
 
-// @desciption for user to play Again
+// Play again?
 function playAgain(){
     modal.classList.remove("show");
     startGame();
