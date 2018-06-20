@@ -2,24 +2,25 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
-* [Approach](#approach)
-* [Version Control](#versioncontrol)
+-   [Instructions](#instructions)
+-   [Approach](#approach)
+-   [Version Control](#versioncontrol)
 
 ### Instructions
 
-* GOAL - Match all cards until there are not matches left. You can earn a maximum of 3 Gold stars
+-   GOAL - Match all cards until there are not matches left. You can earn a maximum of 3 Gold stars
 
-* TO PLAY - Click on any card to initiate the game and timer. Then click another card to see if they match. If they do, success! They will stay up and you can move on to finding the next pair. If the do not match, they will both flip over and you will need to continue searching for matches.
+-   TO PLAY - Click on any card to initiate the game and timer. Then click another card to see if they match. If they do, success! They will stay up and you can move on to finding the next pair. If the do not match, they will both flip over and you will need to continue searching for matches.
 
-* The game is over when you have successfully matched all cards on the board.
+-   The game is over when you have successfully matched all cards on the board.
 
 ### Approach
 
 This was a very difficult project for me. I started by reviewing all requirements and the style guides. I wrote out a list of every thing I knew I needed to do, for example
-  * Flip cards
-  * Begin Timer
-  * Create modal
+
+-   Flip cards
+-   Begin Timer
+-   Create modal
 
 This helped me to begin to visualize what I needed to do. I then drew out the flow of the game play, to help solidify what those list items needed.
 
