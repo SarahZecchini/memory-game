@@ -152,6 +152,7 @@ function enable(){
 function moveCounter(){
     moves++;
     counter.innerHTML = moves;
+    
     // Start timer, on first click
     if(moves == 1){
         second = 0;
